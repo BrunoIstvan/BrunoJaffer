@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3829B3ED213A16CC00608E42 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3829B3EC213A16CC00608E42 /* Settings.bundle */; };
+		3832850321320D4200281F1B /* PurchaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3832850121320D4200281F1B /* PurchaseModel.xcdatamodeld */; };
+		383285052132157400281F1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383285042132157400281F1B /* SettingsViewController.swift */; };
+		383285072132CA5E00281F1B /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383285062132CA5E00281F1B /* UIViewController+CoreData.swift */; };
 		AC2D54BF2131E7F10032258A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D54BE2131E7F10032258A /* AppDelegate.swift */; };
 		AC2D54C12131E7F10032258A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D54C02131E7F10032258A /* ViewController.swift */; };
 		AC2D54C42131E7F10032258A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2D54C22131E7F10032258A /* Main.storyboard */; };
 		AC2D54C62131E7FA0032258A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2D54C52131E7FA0032258A /* Assets.xcassets */; };
 		AC2D54C92131E7FA0032258A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2D54C72131E7FA0032258A /* LaunchScreen.storyboard */; };
+		AC2D54D12131E85E0032258A /* ListPurchasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D54D02131E85E0032258A /* ListPurchasesTableViewController.swift */; };
+		AC2D54D32131EA270032258A /* RegisterPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D54D22131EA270032258A /* RegisterPurchaseViewController.swift */; };
+		AC2D54D52131EE5E0032258A /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D54D42131EE5E0032258A /* TotalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3829B3EC213A16CC00608E42 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		3832850221320D4200281F1B /* PurchaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PurchaseModel.xcdatamodel; sourceTree = "<group>"; };
+		383285042132157400281F1B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		383285062132CA5E00281F1B /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		AC2D54BB2131E7F10032258A /* BrunoJaffer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrunoJaffer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2D54BE2131E7F10032258A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC2D54C02131E7F10032258A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +33,9 @@
 		AC2D54C52131E7FA0032258A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC2D54C82131E7FA0032258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC2D54CA2131E7FA0032258A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC2D54D02131E85E0032258A /* ListPurchasesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPurchasesTableViewController.swift; sourceTree = "<group>"; };
+		AC2D54D22131EA270032258A /* RegisterPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPurchaseViewController.swift; sourceTree = "<group>"; };
+		AC2D54D42131EE5E0032258A /* TotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +71,16 @@
 				AC2D54BE2131E7F10032258A /* AppDelegate.swift */,
 				AC2D54C02131E7F10032258A /* ViewController.swift */,
 				AC2D54C22131E7F10032258A /* Main.storyboard */,
+				383285042132157400281F1B /* SettingsViewController.swift */,
+				AC2D54D42131EE5E0032258A /* TotalViewController.swift */,
+				AC2D54D22131EA270032258A /* RegisterPurchaseViewController.swift */,
+				AC2D54D02131E85E0032258A /* ListPurchasesTableViewController.swift */,
 				AC2D54C52131E7FA0032258A /* Assets.xcassets */,
 				AC2D54C72131E7FA0032258A /* LaunchScreen.storyboard */,
 				AC2D54CA2131E7FA0032258A /* Info.plist */,
+				3832850121320D4200281F1B /* PurchaseModel.xcdatamodeld */,
+				383285062132CA5E00281F1B /* UIViewController+CoreData.swift */,
+				3829B3EC213A16CC00608E42 /* Settings.bundle */,
 			);
 			path = BrunoJaffer;
 			sourceTree = "<group>";
@@ -122,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3829B3ED213A16CC00608E42 /* Settings.bundle in Resources */,
 				AC2D54C92131E7FA0032258A /* LaunchScreen.storyboard in Resources */,
 				AC2D54C62131E7FA0032258A /* Assets.xcassets in Resources */,
 				AC2D54C42131E7F10032258A /* Main.storyboard in Resources */,
@@ -135,7 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2D54D12131E85E0032258A /* ListPurchasesTableViewController.swift in Sources */,
 				AC2D54C12131E7F10032258A /* ViewController.swift in Sources */,
+				383285052132157400281F1B /* SettingsViewController.swift in Sources */,
+				AC2D54D32131EA270032258A /* RegisterPurchaseViewController.swift in Sources */,
+				AC2D54D52131EE5E0032258A /* TotalViewController.swift in Sources */,
+				383285072132CA5E00281F1B /* UIViewController+CoreData.swift in Sources */,
+				3832850321320D4200281F1B /* PurchaseModel.xcdatamodeld in Sources */,
 				AC2D54BF2131E7F10032258A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +360,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3832850121320D4200281F1B /* PurchaseModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3832850221320D4200281F1B /* PurchaseModel.xcdatamodel */,
+			);
+			currentVersion = 3832850221320D4200281F1B /* PurchaseModel.xcdatamodel */;
+			path = PurchaseModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AC2D54B32131E7F10032258A /* Project object */;
 }
