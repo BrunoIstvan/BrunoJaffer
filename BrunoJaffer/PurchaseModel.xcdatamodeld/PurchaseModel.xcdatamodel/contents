@@ -10,7 +10,7 @@
     <entity name="State" representedClassName="State" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tax" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="products" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Product" inverseName="state" inverseEntity="Product" syncable="YES"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Product" inverseName="state" inverseEntity="Product" syncable="YES"/>
     </entity>
     <elements>
         <element name="Product" positionX="-63" positionY="-18" width="128" height="120"/>

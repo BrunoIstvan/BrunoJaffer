@@ -27,7 +27,12 @@ class RegisterPurchaseViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ivProduct: UIImageView!
     @IBOutlet weak var btnAddEdit: UIButton!
     
+    @IBOutlet weak var btnPickImage: UIButton!
+    
+    
     @IBAction func saveProduct(_ sender: UIButton) {
+        
+        let defaultImage: UIImage! = UIImage(named: "Add_Image")
         
         guard let productName = tfNameProduct.text, !productName.isEmpty else {
             self.showMessage(message: "Informe o nome do produto")
@@ -35,6 +40,14 @@ class RegisterPurchaseViewController: UIViewController, UITextFieldDelegate {
         }
         guard let picture = ivProduct.image, picture.size != CGSize(width: 0, height: 0) else {
             self.showMessage(message: "Selecione uma imagem para o produto")
+            return
+        }
+        if self.isEqualImage(image1: defaultImage, image2: picture) {
+            self.showMessage(message: "Selecione uma imagem para o produto")
+            return
+        }
+        if selectedState == nil {
+            self.showMessage(message: "Selecione um estado")
             return
         }
         guard let price = tfPriceProduct.text, !price.isEmpty else {
@@ -45,8 +58,8 @@ class RegisterPurchaseViewController: UIViewController, UITextFieldDelegate {
             self.showMessage(message: "Preço informado não é válido. Use o formato 99.9")
             return
         }
-        if selectedState == nil {
-            self.showMessage(message: "Selecione um estado")
+        if Double(price) ?? 0 <= 0  {
+            self.showMessage(message: "Preço informado não é válido. Informe um valor positivo.")
             return
         }
         if(product == nil) {
@@ -57,29 +70,53 @@ class RegisterPurchaseViewController: UIViewController, UITextFieldDelegate {
         product.creditCardPayment = swCreditCard.isOn
         product.image = picture
         product.state = self.selectedState!
-        do {
-            try context.save()
-            navigationController?.popViewController(animated: true)
-        } catch {
-            print(error.localizedDescription)
-        }
+        
+        showConfirmDialog(executeOnConfirm: {
+            do {
+                try self.context.save()
+                self.navigationController?.popViewController(animated: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        })
+        
     }
     
-    func showMessage(message: String) {
+    private func showConfirmDialog(executeOnConfirm: @escaping () -> Swift.Void) -> Void {
+        let message = "Confirma a gravação?"
         let alert = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Fechar", style: .cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "Confirmar", style: .default) { (action) in
+            executeOnConfirm()
+        }
+        alert.addAction(confirmAction)
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showMessage(message: String) {
+        let alert = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
     
     @IBAction func addStateTax(_ sender: UIButton) {
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "SettingsViewController")
-        self.navigationController!.pushViewController(vc, animated : true)
+        done()
+    }
+    
+    private func isEqualImage(image1: UIImage, image2: UIImage) -> Bool {
+        let data1: Data? = UIImagePNGRepresentation(image1)
+        let data2: Data? = UIImagePNGRepresentation(image2)
+        return data1 == data2
     }
     
     @IBAction func addImage(_ sender: UIButton) {
         
+        // verificar se deve usar actionSheet ou alert
         let alert = UIAlertController(title: "Selecionar imagem", message: "De onde você quer escolher a imagem?", preferredStyle: .actionSheet)
+        //let alert = UIAlertController(title: "Selecionar imagem", message: "De onde você quer escolher a imagem?", preferredStyle: .alert)
+        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "Câmera", style: .default) { (action) in
                 self.selectPicture(sourceType: .camera)
@@ -90,17 +127,17 @@ class RegisterPurchaseViewController: UIViewController, UITextFieldDelegate {
             self.selectPicture(sourceType: .photoLibrary)
         }
         alert.addAction(libraryAction)
-        let photosAction = UIAlertAction(title: "Álbum de fotos", style: .default) { (action) in
-            self.selectPicture(sourceType: .savedPhotosAlbum)
-        }
-        alert.addAction(photosAction)
+        //let photosAction = UIAlertAction(title: "Álbum de fotos", style: .default) { (action) in
+        //    self.selectPicture(sourceType: .savedPhotosAlbum)
+        //}
+        //alert.addAction(photosAction)
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
         
     }
     
-    func selectPicture(sourceType: UIImagePickerControllerSourceType) {
+    private func selectPicture(sourceType: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
         imagePicker.delegate = self
@@ -123,7 +160,6 @@ class RegisterPurchaseViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         pickerView.dataSource = self
         pickerView.delegate = self
-        
         tfPriceProduct.delegate = self
         tfNameProduct.delegate = self
         tfPriceProduct.keyboardType = .numbersAndPunctuation
@@ -145,10 +181,11 @@ class RegisterPurchaseViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func configureToolbar() {
-        let btOk = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(done))
+    private func configureToolbar() {
+        let btOk = UIBarButtonItem(title: "Selecionar", style: UIBarButtonItemStyle.done, target: self, action: #selector(done))
+        //(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(done))
         let btSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let btCancel = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancel))
+        let btCancel = UIBarButtonItem(title: "Cancelar", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancel))
         toolbar.backgroundColor = .white
         toolbar.setItems([btCancel, btSpace, btOk], animated: false)
         self.loadStates()
@@ -161,7 +198,7 @@ class RegisterPurchaseViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    func loadStates() {
+    private func loadStates() {
         let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -169,7 +206,6 @@ class RegisterPurchaseViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func done() {
-        print("OK")
         if states.count > 0 {
             let state = states[pickerView.selectedRow(inComponent: 0)]
             tfStatePurchase.text = state.name
@@ -205,12 +241,6 @@ extension RegisterPurchaseViewController: UIImagePickerControllerDelegate, UINav
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        
-        //let imageURL = info[UIImagePickerControllerImageURL] as! NSURL
-        //selectedPicture = imageURL.path!
-        //print("Selecionou a imagem: \(selectedPicture ?? <#default value#>)")
-        
-        
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
           
             selectedPicture = image
@@ -230,6 +260,7 @@ extension RegisterPurchaseViewController: UIImagePickerControllerDelegate, UINav
             ivProduct.alpha = 1
             ivProduct.contentMode = .scaleToFill
             UIGraphicsEndImageContext()
+            
         }
         
         dismiss(animated: true, completion: nil)

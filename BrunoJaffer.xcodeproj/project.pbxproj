@@ -12,7 +12,6 @@
 		383285052132157400281F1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383285042132157400281F1B /* SettingsViewController.swift */; };
 		383285072132CA5E00281F1B /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383285062132CA5E00281F1B /* UIViewController+CoreData.swift */; };
 		AC2D54BF2131E7F10032258A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D54BE2131E7F10032258A /* AppDelegate.swift */; };
-		AC2D54C12131E7F10032258A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D54C02131E7F10032258A /* ViewController.swift */; };
 		AC2D54C42131E7F10032258A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2D54C22131E7F10032258A /* Main.storyboard */; };
 		AC2D54C62131E7FA0032258A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2D54C52131E7FA0032258A /* Assets.xcassets */; };
 		AC2D54C92131E7FA0032258A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2D54C72131E7FA0032258A /* LaunchScreen.storyboard */; };
@@ -28,7 +27,6 @@
 		383285062132CA5E00281F1B /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		AC2D54BB2131E7F10032258A /* BrunoJaffer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrunoJaffer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2D54BE2131E7F10032258A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC2D54C02131E7F10032258A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC2D54C32131E7F10032258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC2D54C52131E7FA0032258A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC2D54C82131E7FA0032258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				AC2D54BE2131E7F10032258A /* AppDelegate.swift */,
-				AC2D54C02131E7F10032258A /* ViewController.swift */,
 				AC2D54C22131E7F10032258A /* Main.storyboard */,
 				383285042132157400281F1B /* SettingsViewController.swift */,
 				AC2D54D42131EE5E0032258A /* TotalViewController.swift */,
@@ -158,7 +155,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC2D54D12131E85E0032258A /* ListPurchasesTableViewController.swift in Sources */,
-				AC2D54C12131E7F10032258A /* ViewController.swift in Sources */,
 				383285052132157400281F1B /* SettingsViewController.swift in Sources */,
 				AC2D54D32131EA270032258A /* RegisterPurchaseViewController.swift in Sources */,
 				AC2D54D52131EE5E0032258A /* TotalViewController.swift in Sources */,
@@ -309,7 +305,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QR73Q7GU9T;
 				INFOPLIST_FILE = BrunoJaffer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,7 +324,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QR73Q7GU9T;
 				INFOPLIST_FILE = BrunoJaffer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

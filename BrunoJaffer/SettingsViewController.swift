@@ -36,16 +36,39 @@ class SettingsViewController: UIViewController, UITableViewDataSource,
         tfDolarExchange.keyboardType = UIKeyboardType.numbersAndPunctuation
         tfIOFTax.delegate = self
         tfDolarExchange.delegate = self
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(appReturnedFromBackground), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    @objc func appReturnedFromBackground() {
+        print("App returned from background!")
+        recoverSettings()
+    }
+    
+    @objc func appMovedToBackground() {
+        print("App moved to background!")
+        saveSetting()
+    }
+    
+    func recoverSettings() {
         tfIOFTax.text = ud.string(forKey: "iof") ?? "0.0"
         tfDolarExchange.text = ud.string(forKey: "exchange") ?? "0.0"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        recoverSettings()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        saveSetting()
+    }
+    
+    func saveSetting() {
         ud.set(tfIOFTax.text ?? "0.0", forKey: "iof")
         ud.set(tfDolarExchange.text ?? "0.0", forKey: "exchange")
     }
@@ -67,14 +90,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource,
         return false
     }
     
-    func showMessage(message: String) {
+    private func showMessage(message: String) {
         let alert = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Fechar", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
     
-    func saveData(state: State?, alert: UIAlertController) {
+    private func saveData(state: State?, alert: UIAlertController) {
         // verifica se o nome foi informado
         guard let stateName = alert.textFields?[0].text, !stateName.isEmpty else {
             self.showMessage(message: "Informe o nome do estado")
@@ -90,6 +113,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource,
             self.showMessage(message: "Imposto informado não é válido. Use o formato 99.9")
             return
         }
+        if Double(tax) ?? 0 <= 0 {
+            self.showMessage(message: "Imposto informado não é válido. Informe um valor positivo.")
+            return
+        }
         // se estiver tudo OK... gravar o estado/imposto
         let state = state ?? State(context: self.context)
         state.name = stateName
@@ -98,7 +125,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource,
         self.loadStates()
     }
     
-    func showDialog(state: State?) {
+    private func showDialog(state: State?) {
         let title = state == nil ? "Adicionar" : "Atualizar"
         let alert = UIAlertController(title: title, message: "Preencha o estado e o imposto", preferredStyle: .alert)
         let okAction = UIAlertAction(title: title, style: .default) { (action) in
@@ -119,7 +146,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource,
         present(alert, animated: true, completion: nil)
     }
     
-    func showConfirmDialog(executeOnConfirm: @escaping () -> Swift.Void) -> Void {
+    private func showConfirmDialog(executeOnConfirm: @escaping () -> Swift.Void) -> Void {
         let message = "Confirma a exclusão? É importante lembrar que a exclusão de um Estado pode causar a exclusão de produtos vinculados a ele."
         let alert = UIAlertController(title: "Atenção", message: message, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Confirmar", style: .default) { (action) in
@@ -131,7 +158,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource,
         present(alert, animated: true, completion: nil)
     }
     
-    func loadStates() {
+    private func loadStates() {
         let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]

@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +15,75 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="step0001" translatesAutoresizingMaskIntoConstraints="NO" id="SN4-4b-6J8">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                            </imageView>
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHe-Hx-Bzq">
+                                <rect key="frame" x="10" y="30" width="300" height="440"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ComprasUSA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnJ-ti-Xd1">
+                                        <rect key="frame" x="10" y="199.5" width="280" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16MOB - RM331122 - Bruno I. C. Monteiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7Y-Po-aRB">
+                                        <rect key="frame" x="10" y="390.5" width="238" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16MOB - RM330982 - Jaffer dos Santos Veronezi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRG-FL-dK4">
+                                        <rect key="frame" x="10" y="415" width="282" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desenvolvido por:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rem-u0-CW5">
+                                        <rect key="frame" x="10" y="354" width="137.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="aRG-FL-dK4" firstAttribute="leading" secondItem="bHe-Hx-Bzq" secondAttribute="leading" constant="10" id="26u-Uy-C0B"/>
+                                    <constraint firstItem="h7Y-Po-aRB" firstAttribute="top" secondItem="Rem-u0-CW5" secondAttribute="bottom" constant="15" id="72w-zd-cQf"/>
+                                    <constraint firstItem="TnJ-ti-Xd1" firstAttribute="centerX" secondItem="bHe-Hx-Bzq" secondAttribute="centerX" id="F9w-nb-H2S"/>
+                                    <constraint firstAttribute="trailing" secondItem="TnJ-ti-Xd1" secondAttribute="trailing" constant="10" id="LFs-73-pNp"/>
+                                    <constraint firstItem="h7Y-Po-aRB" firstAttribute="leading" secondItem="bHe-Hx-Bzq" secondAttribute="leading" constant="10" id="NsJ-el-dPp"/>
+                                    <constraint firstItem="TnJ-ti-Xd1" firstAttribute="centerY" secondItem="bHe-Hx-Bzq" secondAttribute="centerY" id="gZL-ey-gOh"/>
+                                    <constraint firstItem="TnJ-ti-Xd1" firstAttribute="leading" secondItem="bHe-Hx-Bzq" secondAttribute="leading" constant="10" id="qzf-pi-84r"/>
+                                    <constraint firstItem="Rem-u0-CW5" firstAttribute="leading" secondItem="bHe-Hx-Bzq" secondAttribute="leading" constant="10" id="s4i-vn-aXb"/>
+                                    <constraint firstItem="aRG-FL-dK4" firstAttribute="top" secondItem="h7Y-Po-aRB" secondAttribute="bottom" constant="10" id="sq2-Xg-U3z"/>
+                                    <constraint firstAttribute="bottom" secondItem="aRG-FL-dK4" secondAttribute="bottom" constant="10" id="zld-zk-ix3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SN4-4b-6J8" secondAttribute="trailing" id="0cQ-YW-DWC"/>
+                            <constraint firstItem="SN4-4b-6J8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IPG-X0-NpP"/>
+                            <constraint firstItem="SN4-4b-6J8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Om6-RE-gUc"/>
+                            <constraint firstItem="bHe-Hx-Bzq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="P48-wh-vRT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bHe-Hx-Bzq" secondAttribute="bottom" constant="10" id="cVt-Yi-MVU"/>
+                            <constraint firstItem="bHe-Hx-Bzq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="fq4-WA-0TS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SN4-4b-6J8" secondAttribute="bottom" id="mpZ-xO-W0k"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bHe-Hx-Bzq" secondAttribute="trailing" constant="10" id="qwR-RQ-VEG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="50.724637681159422" y="374.18478260869568"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="step0001" width="203" height="362"/>
+    </resources>
 </document>
