@@ -15,6 +15,8 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var ivProduct: UIImageView!
     @IBOutlet weak var tfNameProduct: UILabel!
     @IBOutlet weak var tfPriceProduct: UILabel!
+    @IBOutlet weak var tfStateProduct: UILabel!
+    @IBOutlet weak var tfCreditCard: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -101,6 +103,9 @@ class ListPurchasesTableViewController: UITableViewController {
         cell.ivProduct.image = product.image as? UIImage
         cell.ivProduct.contentMode = .scaleToFill
         cell.tfNameProduct.text = product.productName
+        cell.tfStateProduct.text = "\(product.state!.name!) (\(product.state!.tax)%)"
+        cell.tfCreditCard.text = product.creditCardPayment ? "Cartão de Crédito" : " "
+        
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale(identifier: "pt_BR")

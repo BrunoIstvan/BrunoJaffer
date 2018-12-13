@@ -11,6 +11,7 @@
 		3832850321320D4200281F1B /* PurchaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3832850121320D4200281F1B /* PurchaseModel.xcdatamodeld */; };
 		383285052132157400281F1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383285042132157400281F1B /* SettingsViewController.swift */; };
 		383285072132CA5E00281F1B /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383285062132CA5E00281F1B /* UIViewController+CoreData.swift */; };
+		38A033A821C1EBCB004D250F /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A033A721C1EBCB004D250F /* StringExt.swift */; };
 		AC2D54BF2131E7F10032258A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D54BE2131E7F10032258A /* AppDelegate.swift */; };
 		AC2D54C42131E7F10032258A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2D54C22131E7F10032258A /* Main.storyboard */; };
 		AC2D54C62131E7FA0032258A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2D54C52131E7FA0032258A /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		3832850221320D4200281F1B /* PurchaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PurchaseModel.xcdatamodel; sourceTree = "<group>"; };
 		383285042132157400281F1B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		383285062132CA5E00281F1B /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
+		38A033A721C1EBCB004D250F /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		AC2D54BB2131E7F10032258A /* BrunoJaffer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrunoJaffer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2D54BE2131E7F10032258A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC2D54C32131E7F10032258A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				3832850121320D4200281F1B /* PurchaseModel.xcdatamodeld */,
 				383285062132CA5E00281F1B /* UIViewController+CoreData.swift */,
 				3829B3EC213A16CC00608E42 /* Settings.bundle */,
+				38A033A721C1EBCB004D250F /* StringExt.swift */,
 			);
 			path = BrunoJaffer;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			files = (
 				AC2D54D12131E85E0032258A /* ListPurchasesTableViewController.swift in Sources */,
 				383285052132157400281F1B /* SettingsViewController.swift in Sources */,
+				38A033A821C1EBCB004D250F /* StringExt.swift in Sources */,
 				AC2D54D32131EA270032258A /* RegisterPurchaseViewController.swift in Sources */,
 				AC2D54D52131EE5E0032258A /* TotalViewController.swift in Sources */,
 				383285072132CA5E00281F1B /* UIViewController+CoreData.swift in Sources */,
